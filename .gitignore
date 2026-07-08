@@ -146,3 +146,4 @@ cython_debug/
 deploy.sh
 .env
 .venv/
+rost-_board/
