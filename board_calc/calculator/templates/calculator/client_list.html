@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'calculator/css/style.css' %}">
+    <title>База клиентов</title>
+</head>
+<body>
+    <h1>База клиентов</h1>
+
+    {% if clients %}
+        <table class="history-table">
+            <thead>
+                <tr>
+                    <th>Фамилия</th>
+                    <th>Имя</th>
+                    <th>Телефон</th>
+                    <th>Адрес</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for client in clients %}
+                <tr>
+                    <td>{{ client.last_name }}</td>
+                    <td>{{ client.first_name }}</td>
+                    <td>{{ client.phone }}</td>
+                    <td>{{ client.address|default:"—" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>В базе пока нет клиентов.</p>
+    {% endif %}
+
+    <p><a href="{% url 'calculator:index' %}">← Вернуться к калькулятору</a></p>
+</body>
+</html>

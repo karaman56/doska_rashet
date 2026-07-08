@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'calculator/css/style.css' %}">
+    <title>История расчётов</title>
+</head>
+<body>
+    <h1>История расчётов</h1>
+
+    <table class="history-table">
+        <thead>
+            <tr>
+                <th>Клиент</th>
+                <th>Телефон</th>
+                <th>Дата и время</th>
+                <th>Тип доски</th>
+                <th>Длина (м)</th>
+                <th>Ширина (м)</th>
+                <th>Ширина доски (см)</th>
+                <th>Цена доски</th>
+                <th>Цена кляймера</th>
+                <th>Кол-во досок</th>
+                <th>Кол-во кляймеров</th>
+                <th>Стоимость</th>
+                <th>Обрезок (м)</th>
+                <th>Крайняя доска (м)</th>
+                <th>Площадь (м²)</th>
+                <th>Погонные метры</th>
+                <th>Комментарий</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for calc in calculations %}
+            <tr>
+                <td>{% if calc.client %}{{ calc.client.last_name }} {{ calc.client.first_name }}{% else %}—{% endif %}</td>
+                <td>{% if calc.client %}{{ calc.client.phone }}{% else %}—{% endif %}</td>
+                <td>{{ calc.created_at|date:"d.m.Y H:i" }}</td>
+                <td>{{ calc.board_type }}</td>
+                <td>{{ calc.length }}</td>
+                <td>{{ calc.width }}</td>
+                <td>{{ calc.board_width_cm }}</td>
+                <td>{{ calc.price_board }}</td>
+                <td>{{ calc.price_claymer }}</td>
+                <td>{{ calc.total_boards }}</td>
+                <td>{{ calc.total_claymers }}</td>
+                <td>{{ calc.total_price }}</td>
+                <td>{{ calc.ostatok|default:"—" }}</td>
+                <td>{{ calc.finish_board|default:"—" }}</td>
+                <td>{{ calc.square_area|default:"—" }}</td>
+                <td>{{ calc.pogonyi_metr|default:"—" }}</td>
+                <td>{{ calc.comment|default:"—" }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="16">Нет сохранённых расчётов.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{% url 'calculator:index' %}">← Вернуться к калькулятору</a></p>
+</body>
+</html>

@@ -1,0 +1,92 @@
+INFO 2026-07-08 19:43:01 autoreload Watching for file changes with StatReloader
+INFO 2026-07-08 19:43:32 autoreload /home/monster/git/PythonProject/doska_rashet/board_calc/calculator/views.py changed, reloading.
+INFO 2026-07-08 19:43:32 autoreload Watching for file changes with StatReloader
+INFO 2026-07-08 19:43:45 autoreload /home/monster/git/PythonProject/doska_rashet/board_calc/calculator/views.py changed, reloading.
+INFO 2026-07-08 19:43:46 autoreload Watching for file changes with StatReloader
+INFO 2026-07-08 19:44:37 autoreload /home/monster/git/PythonProject/doska_rashet/board_calc/calculator/views.py changed, reloading.
+INFO 2026-07-08 19:44:37 autoreload Watching for file changes with StatReloader
+INFO 2026-07-08 19:46:18 autoreload /home/monster/git/PythonProject/doska_rashet/board_calc/calculator/views.py changed, reloading.
+INFO 2026-07-08 19:46:18 autoreload Watching for file changes with StatReloader
+INFO 2026-07-08 19:53:20 autoreload /home/monster/git/PythonProject/doska_rashet/board_calc/config/settings.py changed, reloading.
+INFO 2026-07-08 19:54:46 autoreload Watching for file changes with StatReloader
+INFO 2026-07-08 19:58:47 autoreload /home/monster/git/PythonProject/doska_rashet/board_calc/config/settings.py changed, reloading.
+INFO 2026-07-08 19:58:48 autoreload Watching for file changes with StatReloader
+ERROR 2026-07-08 19:58:52 log Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 308, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/http/request.py", line 206, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+ERROR 2026-07-08 19:59:34 log Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 308, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/http/request.py", line 206, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+INFO 2026-07-08 19:59:34 autoreload /home/monster/git/PythonProject/doska_rashet/board_calc/config/settings.py changed, reloading.
+INFO 2026-07-08 19:59:34 autoreload Watching for file changes with StatReloader
+ERROR 2026-07-08 19:59:36 log Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 308, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/http/request.py", line 206, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+ERROR 2026-07-08 19:59:40 log Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 308, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/http/request.py", line 206, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+INFO 2026-07-08 19:59:58 autoreload /home/monster/git/PythonProject/doska_rashet/board_calc/config/settings.py changed, reloading.
+INFO 2026-07-08 19:59:58 autoreload Watching for file changes with StatReloader
+ERROR 2026-07-08 20:00:00 log Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 308, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/monster/git/PythonProject/doska_rashet/board_calc/venv/lib/python3.12/site-packages/django/http/request.py", line 206, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+INFO 2026-07-08 20:00:15 autoreload /home/monster/git/PythonProject/doska_rashet/board_calc/config/settings.py changed, reloading.
+INFO 2026-07-08 20:00:16 autoreload Watching for file changes with StatReloader
+INFO 2026-07-08 20:00:54 autoreload /home/monster/git/PythonProject/doska_rashet/board_calc/config/settings.py changed, reloading.
+INFO 2026-07-08 20:00:55 autoreload Watching for file changes with StatReloader
+INFO 2026-07-08 20:01:45 autoreload /home/monster/git/PythonProject/doska_rashet/board_calc/config/settings.py changed, reloading.

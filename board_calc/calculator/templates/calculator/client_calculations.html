@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'calculator/css/style.css' %}">
+    <title>Поиск расчётов клиента</title>
+</head>
+<body>
+    <h1>Поиск расчётов клиента</h1>
+
+    <form method="get" action="{% url 'calculator:client_calculations' %}" class="search-form">
+        <input type="text" name="q" value="{{ query }}" placeholder="Введите фамилию или имя...">
+        <button type="submit">Искать</button>
+    </form>
+
+    {% if calculations %}
+    <table class="history-table">
+        <thead>
+            <tr>
+                <th>Клиент</th>
+                <th>Телефон</th>
+                <th>Дата и время</th>
+                <th>Тип доски</th>
+                <th>Длина (м)</th>
+                <th>Ширина (м)</th>
+                <th>Ширина доски (см)</th>
+                <th>Кол-во досок</th>
+                <th>Кол-во кляймеров</th>
+                <th>Погонные метры</th>
+                <th>Стоимость доски</th>
+                <th>Стоимость кляймеров</th>
+                <th>Общая стоимость</th>
+                <th>Комментарий</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for calc in calculations %}
+            <tr>
+                <td>{% if calc.client %}{{ calc.client.last_name }} {{ calc.client.first_name }}{% else %}—{% endif %}</td>
+                <td>{% if calc.client %}{{ calc.client.phone }}{% else %}—{% endif %}</td>
+                <td>{{ calc.created_at|date:"d.m.Y H:i" }}</td>
+                <td>{{ calc.board_type }}</td>
+                <td>{{ calc.length }}</td>
+                <td>{{ calc.width }}</td>
+                <td>{{ calc.board_width_cm }}</td>
+                <td>{{ calc.total_boards }}</td>
+                <td>{{ calc.total_claymers }}</td>
+                <td>{{ calc.pogonyi_metr|default:"—" }}</td>
+                <td>{{ calc.price_board|floatformat:2 }} руб.</td>
+                <td>{{ calc.price_claymer|floatformat:2 }} руб.</td>
+                <td>{{ calc.total_price|floatformat:2 }} руб.</td>
+                <td>{{ calc.comment|default:"—" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% elif query %}
+        <p>Ничего не найдено по запросу «{{ query }}».</p>
+    {% endif %}
+
+    <p><a href="{% url 'calculator:index' %}">← Вернуться к калькулятору</a></p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

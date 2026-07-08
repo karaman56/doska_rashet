@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'calculator/css/style.css' %}">
+    <title>Калькуляторы доски</title>
+</head>
+<body>
+    <h1>Калькуляторы расчёта досок</h1>
+
+    <!-- Обёртка для двух калькуляторов -->
+    <div class="calc-wrapper">
+
+        <!-- Первый калькулятор (3 метра) -->
+        <div class="calc-block">
+            <h2>Доска 3 метра</h2>
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="calc_type" value="3m">
+
+                <!-- Данные клиента -->
+                <fieldset>
+                    <legend>Данные клиента</legend>
+                    <label>Фамилия: <input type="text" name="last_name"></label><br><br>
+                    <label>Имя: <input type="text" name="first_name"></label><br><br>
+                    <label>Телефон: <input type="text" name="phone"></label><br><br>
+                    <label>Адрес: <input type="text" name="address"></label><br><br>
+                </fieldset>
+
+                <!-- Параметры области и доски -->
+                <label>Длина (м): <input type="number" step="any" name="length" required></label><br><br>
+                <label>Ширина (м): <input type="number" step="any" name="width" required></label><br><br>
+
+                <!-- Выпадающий список ширины доски -->
+                <label>Ширина доски (см):
+                    <select name="board_width_cm">
+                        <option value="14" {% if board_width_cm == 14 %}selected{% endif %}>14 см</option>
+                        <option value="15" {% if board_width_cm == 15 %}selected{% endif %}>15 см</option>
+                    </select>
+                </label><br><br>
+
+                <!-- Цены (с автоматической подстановкой заводских) -->
+                <label>Цена доски за 1 погонный метр (руб): <input type="number" step="any" name="price_bord" value="{% if price_bord_str %}{{ price_bord_str }}{% else %}{{ default_price_board }}{% endif %}"></label><br><br>
+                                <!-- Надбавки -->
+                <label>
+                    <input type="checkbox" id="chk_brosh"> Брошюрование (+<span id="brosh_label">{{ brosh_price }}</span> руб/п.м)
+                </label><br>
+                <label>
+                    <input type="checkbox" id="chk_tesn"> Теснение (+<span id="tesn_label">{{ tesn_price }}</span> руб/п.м)
+                </label><br>
+                    <label>
+                    <input type="checkbox" id="chk_brosh_after_tesn"> Брошюрование после теснения (+<span id="brosh_after_tesn_label">{{ brosh_after_tesn_price }}</span> руб/п.м)
+                </label><br>
+                <label>
+                    <input type="checkbox" id="chk_premium"> Премиум (цена <span id="premium_label_14">{{ premium_price_14 }}</span> / <span id="premium_label_15">{{ premium_price_15 }}</span> руб/п.м)
+                </label><br><br>
+                <label>Цена одного кляймера (руб): <input type="number" step="any" name="claymer_price" value="{% if claymer_price_str %}{{ claymer_price_str }}{% else %}{{ default_price_claymer }}{% endif %}"></label><br><br>
+
+                <!-- Комментарий -->
+                <label>Комментарий к расчёту:<br>
+                    <textarea name="comment" rows="3" cols="40"></textarea>
+                </label><br><br>
+
+                <button type="submit">Рассчитать</button>
+            </form>
+
+            {% if result_3m %}
+                <h3>Результаты для доски 3 м:</h3>
+                <p>Длина: {{ length_board }} м</p>
+                <p>Ширина: {{ width_board }} м</p>
+                <p>Необходимое количество досок: <strong>{{ result_3m }} шт.</strong></p>
+                {% if pogonyi_metr_board %}
+                    <p>Погонных метров доски: {{ pogonyi_metr_board }} м</p>
+                {% endif %}
+                {% if ostatok_3m %}
+                    <p>Длина остатка от обрезка последней доски: {{ ostatok_3m }} м</p>
+                    <p>Размер крайней доски в первом ряду: {{ finish_board_3m }} м</p>
+                {% endif %}
+                {% if square_board %}
+                    <p>Общая площадь доски: {{ square_board }} м²</p>
+                {% endif %}
+                {% if start_claymer %}
+                    <p>Стартовых кляймеров: {{ start_claymer }} шт.</p>
+                {% endif %}
+                {% if claymer %}
+                    <p>Соеденительные кляймеров: {{ claymer }} шт.</p>
+                {% endif %}
+                {% if total_price_board %}
+                    <p>Стоимость доски: {{ total_price_board }} руб.</p>
+                {% endif %}
+                {% if total_price_board %}
+                    <p>Цена за погонный метр: {{ price_bord }} руб.</p>
+                {% endif %}
+                {% if total_price_board %}
+                    <p>Цена за один кляймер: {{ claymer_price_str }} руб.</p>
+                {% endif %}
+                {% if total_price_claymer %}
+                    <p>Стоимость кляймеров общая: {{ total_price_claymer }} руб.</p>
+                {% endif %}
+            {% endif %}
+        </div>
+
+        <!-- Второй калькулятор (4 метра) -->
+        <div class="calc-block">
+            <h2>Доска 4 метра</h2>
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="calc_type" value="4m">
+
+                <!-- Данные клиента -->
+                <fieldset>
+                    <legend>Данные клиента</legend>
+                    <label>Фамилия: <input type="text" name="last_name"></label><br><br>
+                    <label>Имя: <input type="text" name="first_name"></label><br><br>
+                    <label>Телефон: <input type="text" name="phone"></label><br><br>
+                    <label>Адрес: <input type="text" name="address"></label><br><br>
+                </fieldset>
+
+                <!-- Параметры области и доски -->
+                <label>Длина области (м): <input type="number" step="any" name="length" required></label><br><br>
+                <label>Ширина области (м): <input type="number" step="any" name="width" required></label><br><br>
+
+                <!-- Цены (с автоматической подстановкой заводских) -->
+                <label>Цена доски за 1 погонный метр (руб): <input type="number" step="any" name="price_bord" value="{% if price_bord_str %}{{ price_bord_str }}{% else %}{{ default_price_board }}{% endif %}"></label><br><br>
+                <label>Цена одного кляймера (руб): <input type="number" step="any" name="claymer_price" value="{% if claymer_price_str %}{{ claymer_price_str }}{% else %}{{ default_price_claymer }}{% endif %}"></label><br><br>
+
+                <!-- Комментарий -->
+                <label>Комментарий к расчёту:<br>
+                    <textarea name="comment" rows="3" cols="40"></textarea>
+                </label><br><br>
+
+                <button type="submit">Рассчитать</button>
+            </form>
+
+            {% if result_4m %}
+                <h3>Результаты для доски 4 м:</h3>
+                <p>Необходимое количество досок: <strong>{{ result_4m }} шт.</strong></p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Ссылки внизу -->
+    <p style="text-align:center; margin-top:30px;">
+    <a href="{% url 'calculator:history' %}" target="_blank" rel="noopener noreferrer">📋 Посмотреть историю расчётов</a>
+    &nbsp;|&nbsp;
+    <a href="{% url 'calculator:client_calculations' %}" target="_blank" rel="noopener noreferrer">🔍 Поиск расчётов клиента</a>
+    &nbsp;|&nbsp;
+    <a href="{% url 'calculator:client_list' %}" target="_blank" rel="noopener noreferrer">📇 База клиентов</a>
+    &nbsp;|&nbsp;
+    <a href="{% url 'calculator:logout' %}">🚪 Выйти</a>
+</p>
+<script>
+    // ----- Получаем элементы -----
+    const boardWidthSelect = document.querySelector('select[name="board_width_cm"]');
+    const priceInput = document.querySelector('input[name="price_bord"]');
+    const chkBrosh = document.getElementById('chk_brosh');
+    const chkTesn = document.getElementById('chk_tesn');
+    const chkBroshAfterTesn = document.getElementById('chk_brosh_after_tesn');
+    const chkPremium = document.getElementById('chk_premium');   // новый элемент
+
+    // ----- Заводские цены из шаблона -----
+    const price14 = {{ price_board_14 }};
+    const price15 = {{ price_board_15 }};
+    const premiumPrice14 = {{ premium_price_14 }};
+    const premiumPrice15 = {{ premium_price_15 }};
+    const broshPrice = {{ brosh_price }};
+    const tesnPrice = {{ tesn_price }};
+    const broshAfterTesnPrice = {{ brosh_after_tesn_price }};
+
+    // ----- Базовая цена (без надбавок) -----
+    let basePrice = 0;
+
+    // Определяет заводскую цену в зависимости от ширины и состояния премиум
+    function getFactoryPrice() {
+        const is15 = boardWidthSelect.value === '15';
+        if (chkPremium.checked) {
+            return is15 ? premiumPrice15 : premiumPrice14;
+        } else {
+            return is15 ? price15 : price14;
+        }
+    }
+
+    // Инициализация при загрузке
+    function initBasePrice() {
+        let currentVal = parseFloat(priceInput.value);
+        if (isNaN(currentVal)) {
+            currentVal = getFactoryPrice();   // берём заводскую цену с учётом премиум
+        }
+        basePrice = currentVal;
+        applyAddons();
+    }
+
+    // Применяет надбавки к basePrice и обновляет поле
+    function applyAddons() {
+        let total = basePrice;
+        if (chkBrosh.checked) total += broshPrice;
+        if (chkTesn.checked) total += tesnPrice;
+        if (chkBroshAfterTesn.checked) total += broshAfterTesnPrice;
+        priceInput.value = total.toFixed(2);
+    }
+
+    // Смена ширины доски
+    boardWidthSelect.addEventListener('change', function() {
+        basePrice = getFactoryPrice();   // пересчитываем базу с учётом премиум
+        applyAddons();
+    });
+
+    // Смена премиум
+    chkPremium.addEventListener('change', function() {
+        basePrice = getFactoryPrice();   // базовая цена становится премиум-ценой или обычной
+        applyAddons();
+    });
+
+    // Обработчики надбавок
+    chkBrosh.addEventListener('change', applyAddons);
+    chkTesn.addEventListener('change', applyAddons);
+    chkBroshAfterTesn.addEventListener('change', applyAddons);
+
+    // Ручной ввод цены
+    priceInput.addEventListener('input', function() {
+        let raw = parseFloat(this.value);
+        if (isNaN(raw)) return;
+        // Вычитаем все надбавки, чтобы получить новую basePrice
+        if (chkBrosh.checked) raw -= broshPrice;
+        if (chkTesn.checked) raw -= tesnPrice;
+        if (chkBroshAfterTesn.checked) raw -= broshAfterTesnPrice;
+        basePrice = Math.max(raw, 0);
+        // Премиум-статус не трогаем – после ручного ввода база уже определена,
+        // но при следующем переключении премиум/ширины она сбросится на заводскую.
+    });
+
+    // Старт
+    initBasePrice();
+</script>
+</body>
+</html>
