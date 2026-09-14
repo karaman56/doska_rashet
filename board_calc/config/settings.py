@@ -34,6 +34,8 @@ ALLOWED_HOSTS = [
     'www.rostboard.ru',
     'ростбоард.рф',
     'www.ростбоард.рф',
+    'xn--80abk1bbjeej.xn--p1ai',        # правильный Punycode для ростбоард.рф
+    'www.xn--80abk1bbjeej.xn--p1ai',
 ]
 
 # Application definition

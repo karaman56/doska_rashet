@@ -31,7 +31,7 @@ def calc_3m(length_board, width_board, board_width_m, price_bord, claymer_price)
     square = round(length_board * width_board, 1)
     # кояймеры, стартовые кляймеры
     start_claymer = round(length_board / 0.4) + 2
-    claymer = round(square * 21 - start_claymer)
+    claymer = round(square * 25 - start_claymer)
     pogonyi_metr_board = total_number_board * parameter_board
     total_price_board = pogonyi_metr_board * price_bord
     total_price_claymer = round((claymer + start_claymer) * claymer_price, 1)

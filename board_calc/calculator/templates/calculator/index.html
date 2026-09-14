@@ -43,13 +43,13 @@
                 <label>Цена доски за 1 погонный метр (руб): <input type="number" step="any" name="price_bord" value="{% if price_bord_str %}{{ price_bord_str }}{% else %}{{ default_price_board }}{% endif %}"></label><br><br>
                                 <!-- Надбавки -->
                 <label>
-                    <input type="checkbox" id="chk_brosh"> Брошюрование (+<span id="brosh_label">{{ brosh_price }}</span> руб/п.м)
+                    <input type="checkbox" id="chk_brosh"> Броширование (+<span id="brosh_label">{{ brosh_price }}</span> руб/п.м)
                 </label><br>
                 <label>
-                    <input type="checkbox" id="chk_tesn"> Теснение (+<span id="tesn_label">{{ tesn_price }}</span> руб/п.м)
+                    <input type="checkbox" id="chk_tesn"> Тиснение (+<span id="tesn_label">{{ tesn_price }}</span> руб/п.м)
                 </label><br>
                     <label>
-                    <input type="checkbox" id="chk_brosh_after_tesn"> Брошюрование после теснения (+<span id="brosh_after_tesn_label">{{ brosh_after_tesn_price }}</span> руб/п.м)
+                    <input type="checkbox" id="chk_brosh_after_tesn"> Броширование после тиснения (+<span id="brosh_after_tesn_label">{{ brosh_after_tesn_price }}</span> руб/п.м)
                 </label><br>
                 <label>
                     <input type="checkbox" id="chk_premium"> Премиум (цена <span id="premium_label_14">{{ premium_price_14 }}</span> / <span id="premium_label_15">{{ premium_price_15 }}</span> руб/п.м)
