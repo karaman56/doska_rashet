@@ -65,6 +65,7 @@ cover/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
+*.sqlite3
 
 # Flask stuff:
 instance/
@@ -117,6 +118,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# Виртуальное окружение проекта (было закоммичено по ошибке)
+board_calc/venv/
 
 # Spyder project settings
 .spyderproject
